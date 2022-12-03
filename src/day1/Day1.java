@@ -1,25 +1,35 @@
 package day1;
 
 import general.Day;
+import general.Day2021;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Day1 {
-
-    private static final ArrayList<Integer> elves = new ArrayList<>();
-    private static final ArrayList<String> input = new Day.ReadFile("./src/day1/input.txt").read();
-
-
-    public static void main(String[] args) {
-        calculateCalories();
-        Collections.sort(elves);
-        Collections.reverse(elves);
-        System.out.println("Part 1: " + elves.get(0));
-        System.out.println("Part 2: " + (elves.get(0) + elves.get(1) + elves.get(2)));
+public class Day1 extends Day2021 {
+    public Day1() {
+        super(5);
     }
 
-    public static void calculateCalories() {
+    private final ArrayList<String> input = new Day.ReadFile("./src/day1/input.txt").read();
+
+    public static void main(String[] args) {
+        new Day1().printParts();
+    }
+
+    @Override
+    public Object part1() {
+        return calculateCalories().get(0);
+    }
+
+    @Override
+    public Object part2() {
+        ArrayList<Integer> elves = calculateCalories();
+        return elves.get(0) + elves.get(1) + elves.get(2);
+    }
+
+    public ArrayList<Integer> calculateCalories() {
+        ArrayList<Integer> elves = new ArrayList<>();
         int calorieCount = 0;
         for (String calories : input) {
             if (!calories.equals("")) {
@@ -29,5 +39,8 @@ public class Day1 {
                 calorieCount = 0;
             }
         }
+        Collections.sort(elves);
+        Collections.reverse(elves);
+        return elves;
     }
 }
