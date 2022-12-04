@@ -9,7 +9,7 @@ public class Day3 extends Day2021 {
         super(3);
     }
 
-    private final ArrayList<String> input = new ReadFile("./src/day3/example.txt").read();
+    private final ArrayList<String> input = new ReadFile("./src/day3/input.txt").read();
 
     public static void main(String[] args) {
         new Day3().printParts();
@@ -33,12 +33,17 @@ public class Day3 extends Day2021 {
 
     @Override
     public Object part2() {
+        int prioritySum = 0;
         for (int i = 0; i < input.size() / 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.println(i * 3 + j);
+            for (char letter: input.get(i * 3).toCharArray()) {
+                if (input.get(i * 3).indexOf(letter) != -1 && input.get(i * 3 + 1).indexOf(letter) != -1 && input.get(i * 3 + 2).indexOf(letter) != -1) {
+                    prioritySum += getPriority(letter);
+                    break;
+                }
             }
+
         }
-        return 0;
+        return prioritySum;
     }
 
     public int getPriority(int code) {
