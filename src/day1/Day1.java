@@ -1,14 +1,13 @@
 package day1;
 
 import general.Day;
-import general.Day2021;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Day1 extends Day2021 {
+public class Day1 extends Day {
     public Day1() {
-        super(5);
+        super(1);
     }
 
     private final ArrayList<String> input = new Day.ReadFile("./src/day1/input.txt").read();
@@ -32,7 +31,7 @@ public class Day1 extends Day2021 {
         ArrayList<Integer> elves = new ArrayList<>();
         int calorieCount = 0;
         for (String calories : input) {
-            if (!calories.equals("")) {
+            if (!calories.isEmpty()) {
                 calorieCount += Integer.parseInt(calories);
             } else {
                 elves.add(calorieCount);

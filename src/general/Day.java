@@ -8,11 +8,9 @@ import java.util.Scanner;
 
 public abstract class Day {
 
-    protected final int year;
     protected final int day;
 
-    public Day(int year, int day) {
-        this.year = year;
+    public Day(int day) {
         this.day = day;
     }
 

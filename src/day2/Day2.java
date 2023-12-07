@@ -1,11 +1,11 @@
 package day2;
 
-import general.Day2021;
+import general.Day;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Day2 extends Day2021 {
+public class Day2 extends Day {
     public Day2() {
         super(2);
     }

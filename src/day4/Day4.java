@@ -1,11 +1,11 @@
 package day4;
 
-import general.Day2021;
+import general.Day;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Day4 extends Day2021 {
+public class Day4 extends Day {
     public Day4() {
         super(4);
     }
